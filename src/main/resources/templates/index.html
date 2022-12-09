@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title> Inventory Homepage</title>
+    <script src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+    <script src="@{/webjars/bootstrap/5.2.3/js/bootstrap.min.js}"></script>
+<!--    <script src="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}"></script>-->
+    <link rel="stylesheet"
+          type="text/css"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+<!--          href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css" />-->
+</head>
+<body>
+<div class="container text-center">
+    <div><h1>Welcome to inventory App</h1></div>
+    <div class="p-2">
+        <a class="h2" th:href="@{/categories}">List Categories</a>
+    </div>
+    <div class="p-2">
+        <a class="h2" th:href="@{/categories/new}">Create Categories</a>
+    </div>
+    <div class="p-2">
+        <a class="h2" th:href="@{/products}">List Products</a>
+    </div>
+    <div class="p-2">
+        <a class="h2" th:href="@{/products/new}">Create Product</a>
+    </div>
+</div>
+
+</body>
+</html>
+
+

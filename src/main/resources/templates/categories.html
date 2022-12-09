@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>List Categories</title>
+    <script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+          type="text/css"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <!--          href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css" />-->
+</head>
+<body>
+    <div class="container text-center">
+        <div><h1>Category List</h1></div>
+        <div>
+            <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Dish Type</th>
+                </tr>
+            </thead>
+            <tbody> <!--/*@thymesVar id="listCategories" type="java"*/-->
+                <th:block th:each="category : ${listCategories}">
+                    <tr>
+                        <td>[[${category?.id}]]</td>
+                        <td>[[${category?.name}]]</td>
+                        <td>[[${category?.type_id}]]</td>
+                    </tr>
+                </th:block>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+
+
