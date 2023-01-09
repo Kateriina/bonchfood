@@ -10,18 +10,22 @@ public class Dishes {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "name")
+    @Column(name = "name")// unique = true)
     private String name;
+//
+//    @Column(name = "type_id")
+//    private Integer type_id;
 
-    @Column(name = "type_id")
-    private Integer type_id;
+    @ManyToOne
+    @JoinColumn(name = "type_id")
+    private DishType dishType;
 
     public Dishes() {
     }
 
-    public Dishes(String name, Integer type_id) {
+    public Dishes(String name, DishType dishType) {
         this.name = name;
-        this.type_id = type_id;
+        this.dishType = dishType;
     }
 
 
@@ -41,11 +45,11 @@ public class Dishes {
         this.name = name;
     }
 
-    public Integer getType_id() {
-        return type_id;
+    public DishType getDishType() {
+        return dishType;
     }
 
-    public void setType_id(Integer type_id) {
-        this.type_id = type_id;
+    public void setDishType(DishType dishType) {
+        this.dishType = dishType;
     }
 }

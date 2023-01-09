@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="ISO-8859-1">
-    <title>List Categories</title>
+    <title>List Dishes</title>
     <script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
     <script src="/webjars/bootstrap/5.2.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet"
@@ -12,25 +12,27 @@
 </head>
 <body>
     <div class="container text-center">
-        <div><h1>Category List</h1></div>
+        <div><h1>Dish List</h1></div>
         <div>
             <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
                     <th>ID</th>
+                    <th>Name</th>
                     <th>Type</th>
                     <th></th>
                 </tr>
             </thead>
-            <tbody> <!--/*@thymesVar id="listCategories" type="java"*/-->
-                <th:block th:each="category : ${listCategories}">
+            <tbody> <!--/*@thymesVar id="categories.html" type="java"*/-->
+                <th:block th:each="dish : ${listDishes}">
                     <tr>
-                        <td>[[${category?.id}]]</td>
-                        <td>[[${category?.type}]]</td>
+                        <td th:text="${dish.id}"></td>
+                        <td th:text="${dish.name}"></td>
+                        <td th:text="${dish.dishType.type}"></td>
                         <td>
-                            <a th:href="@{'/categories/edit/' + ${category.id}}">Edit</a>
+                            <a th:href="@{'/dishes/edit/' + ${dish.id}}">Edit</a>
                             &nbsp;
-                            <a th:href="@{'/categories/delete/' + ${category.id}}">Delete</a>
+                            <a th:href="@{'/dishes/delete/' + ${dish.id}}">Delete</a>
                         </td>
                     </tr>
                 </th:block>

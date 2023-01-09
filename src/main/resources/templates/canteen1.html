@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>List Canteen 1</title>
+    <script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+          type="text/css"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <!--          href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css" />-->
+</head>
+<body>
+
+<div class="container text-center">
+    <div><h1>Canteen 1 List</h1></div>
+    <div th:each="type : ${listCategories}">
+
+
+<!--        <div th:if="${listCategories !=null}">-->
+<!--        <div th:if="${listCanteen.contains(type.type_id)}">-->
+<!--        <div  th:text="${#lists.contains(listCanteen,  '' + '??????' +  '')}" ></div>-->
+        <div>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                <tr>
+<!--                    <th>ID</th>-->
+                    <th  th:text = "${type.type}"></th>
+                    <!--                    <th>Type</th>-->
+                </tr>
+                </thead>
+                <tbody> <!--/*@thymesVar id="categories.html" type="java"*/-->
+                <th:block th:each="cant : ${listCanteen}">
+                    <tr>
+<!--                        <td th:if="${cant.dishName.dishType.id == type.id}" th:text="${cant.id}"></td>-->
+                        <td th:if="${cant.dishName.dishType.id == type.id}"  th:text="${cant?.dishName.name}"></td>
+                    </tr>
+                </th:block>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
+
+
