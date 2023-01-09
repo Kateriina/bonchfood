@@ -36,7 +36,10 @@
                         <td th:if="${cant.dishName.dishType.id == type.id}"  th:text="${cant?.dishName.name}"></td>
                     </tr>
                 </th:block>
-
+                <td> <!-- cell merging -->
+<!--                    <a th:href="@{'/canteen1/add'+ ${type.id}}">Add</a>-->
+                    <a th:href="@{/canteen1/add}">Add</a>
+                </td>
                 </tbody>
             </table>
         </div>

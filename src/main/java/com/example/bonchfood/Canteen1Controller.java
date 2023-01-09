@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -18,24 +20,11 @@ public class Canteen1Controller {
     private final CanteenRepository cantRepo;
 
     @Autowired
-    private DishesRepository dishRepo;
+    private DishesRepository productRepo;
 
     @Autowired
     private DishTypeRepository typeRepo;
 
-//    @GetMapping("/dishes/new")
-//    public String showNewDishesForm(Model model){
-//        List<DishType> listCategories = categoryRepo.findAll();
-//        model.addAttribute("dish", new Dishes());
-//        model.addAttribute("listCategories", listCategories);
-//        return "dish_form";
-//    }
-
-//    @PostMapping("/dishes/save")
-//    public String saveDish(Dishes dish){
-//        cantRepo.save(dish);
-//        return "redirect:/";
-//    }
 
     @GetMapping("/canteen1")
     public String listCanteen(Model model){
@@ -47,4 +36,24 @@ public class Canteen1Controller {
 
         return "canteen1";
     }
+
+//    @GetMapping("/canteen1/add/{id}")
+    @GetMapping("/canteen1/add")
+//    public String showNewDishesForm(@PathVariable("id") Integer id, Model model) {
+    public String showNewDishesForm( Model model) {
+        List<Dishes> listDishes = productRepo.findAll();
+
+        model.addAttribute("cant", new Canteen());
+        model.addAttribute("listDishes", listDishes);
+
+        return "canteen1_form";
+    }
+
+    @PostMapping("/canteen1/save")
+    public String saveCanteen(Canteen cant) {
+        cantRepo.save(cant);
+
+        return "redirect:/";
+    }
+
 }
