@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "canteen1")
-public class Canteen {
+public class Canteen1 {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -18,10 +18,10 @@ public class Canteen {
 //    @JoinColumn(name = "type_id")
 //    private DishType dishType;
 
-    public Canteen() {
+    public Canteen1() {
     }
 
-    public Canteen(Integer id, Dishes dishName) {
+    public Canteen1(Integer id, Dishes dishName) {
         this.id = id;
         this.dishName = dishName;
     }

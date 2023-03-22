@@ -16,8 +16,8 @@
     <div><h1>Canteen 1 List</h1></div>
 
     <td> <!-- cell merging -->
-        <!--                    <a th:href="@{'/canteen1/add'+ ${type.id}}">Add</a>-->
-        <a th:href="@{/canteen1/add}">Add</a>
+        <!--                    <a th:href="@{'/canteen3/add'+ ${type.id}}">Add</a>-->
+        <a th:href="@{/canteen3/add}">Add</a>
     </td>
     <div th:each="type : ${listCategories}">
 
@@ -41,7 +41,7 @@
 <!--                        <td th:if="${cant.dishName.dishType.id == type.id}" th:text="${cant.id}"></td>-->
                         <td th:if="${cant.dishName.dishType.id == type.id}"  th:text="${cant?.dishName.name}" th:width="250"></td>
                         <td th:if="${cant.dishName.dishType.id == type.id}" th:width="50">
-                            <a th:href="@{'/canteen1/delete/' + ${cant.id}}">Delete</a>
+                            <a th:href="@{'/canteen3/delete/' + ${cant.id}}">Delete</a>
                         </td>
                     </tr>
                 </th:block>

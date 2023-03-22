@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.List;
 
 @Controller
-public class Canteen1Controller {
+public class Canteen3Controller {
 
-    public Canteen1Controller(Canteen1Repository repo) {
+    public Canteen3Controller(Canteen3Repository repo) {
         this.cantRepo = repo;
     }
 
     @Autowired
-    private final Canteen1Repository cantRepo;
+    private final Canteen3Repository cantRepo;
 
     @Autowired
     private DishesRepository productRepo;
@@ -26,40 +26,40 @@ public class Canteen1Controller {
     private DishTypeRepository typeRepo;
 
 
-    @GetMapping("/canteen1")
+    @GetMapping("/canteen3")
     public String listCanteen(Model model){
-        List<Canteen1> listCanteen = cantRepo.findAll();
+        List<Canteen3> listCanteen = cantRepo.findAll();
         model.addAttribute("listCanteen", listCanteen);
 
         List<DishType> listCategories = typeRepo.findAll();
         model.addAttribute("listCategories", listCategories);
 
-        return "canteen1";
+        return "canteen3";
     }
 
-//    @GetMapping("/canteen1/add/{id}")
-    @GetMapping("/canteen1/add")
+//    @GetMapping("/canteen3/add/{id}")
+    @GetMapping("/canteen3/add")
 //    public String showNewDishesForm(@PathVariable("id") Integer id, Model model) {
     public String showNewDishesForm( Model model) {
         List<Dishes> listDishes = productRepo.findAll();
 
-        model.addAttribute("cant", new Canteen1());
+        model.addAttribute("cant", new Canteen3());
         model.addAttribute("listDishes", listDishes);
 
-        return "canteen1_form";
+        return "canteen3_form";
     }
 
-    @GetMapping("canteen1/delete/{id}")
+    @GetMapping("canteen3/delete/{id}")
     public String deleteCategories(@PathVariable("id") Integer id, Model model) {
         cantRepo.deleteById(id);
 
-        return "redirect:/canteen1";
+        return "redirect:/canteen3";
     }
-    @PostMapping("/canteen1/save")
-    public String saveCanteen(Canteen1 cant) {
+    @PostMapping("/canteen3/save")
+    public String saveCanteen(Canteen3 cant) {
         cantRepo.save(cant);
 
-        return "redirect:/canteen1";
+        return "redirect:/canteen3";
     }
 
 }

@@ -48,11 +48,7 @@ public class DishTypeController {
     @GetMapping("categories/edit/{id}")
     public String showEditCategoriesForm(@PathVariable("id") Integer id, Model model) {
         DishType dishType = repo.findById(id).get();
-        model.addAttribute("dish", dishType);
-
-        List<DishType> listCategories = repo.findAll();
-
-        model.addAttribute("listCategories", listCategories);
+        model.addAttribute("category", dishType);
 
         return "category_form";
     }

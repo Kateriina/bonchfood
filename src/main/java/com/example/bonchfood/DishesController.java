@@ -37,7 +37,7 @@ public class DishesController {
     public String saveDish(Dishes dish) {
         productRepo.save(dish);
 
-        return "redirect:/";
+        return "redirect:/dishes";
     }
 
     @GetMapping("/dishes")
