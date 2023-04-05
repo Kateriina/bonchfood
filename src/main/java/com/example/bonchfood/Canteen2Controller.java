@@ -12,12 +12,12 @@ import java.util.List;
 @Controller
 public class Canteen2Controller {
 
-    public Canteen2Controller(Canteen1Repository repo) {
+    public Canteen2Controller(Canteen2Repository repo) {
         this.cantRepo = repo;
     }
 
     @Autowired
-    private final Canteen1Repository cantRepo;
+    private final Canteen2Repository cantRepo;
 
     @Autowired
     private DishesRepository productRepo;
@@ -28,7 +28,7 @@ public class Canteen2Controller {
 
     @GetMapping("/canteen2")
     public String listCanteen(Model model){
-        List<Canteen1> listCanteen = cantRepo.findAll();
+        List<Canteen2> listCanteen = cantRepo.findAll();
         model.addAttribute("listCanteen", listCanteen);
 
         List<DishType> listCategories = typeRepo.findAll();
@@ -56,7 +56,7 @@ public class Canteen2Controller {
         return "redirect:/canteen2";
     }
     @PostMapping("/canteen2/save")
-    public String saveCanteen(Canteen1 cant) {
+    public String saveCanteen(Canteen2 cant) {
         cantRepo.save(cant);
 
         return "redirect:/canteen2";
